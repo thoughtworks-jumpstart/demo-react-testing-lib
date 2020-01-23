@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "./App.css";
+import Counter from "./components/Counter";
+import FruitFilter from "./components/FruitFilter";
+import TestingAxios from "./components/TestingAxios";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <BrowserRouter>
+      <header>
+        <Link to="/counter">Counter</Link>
+        <Link to="/filter">Filter</Link>
+        <Link to="/axios">Axios</Link>
       </header>
-    </div>
+
+      <div>
+        <Route path="/counter" component={Counter} />
+        <Route path="/filter" component={FruitFilter} />
+        <Route path="/axios" component={TestingAxios} />
+      </div>
+    </BrowserRouter>
   );
 }
 
